@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="LUTASPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>entidade.Base</class>
+    <properties>
+    <!--  String de Conexao com o banco de dados do MySQL-->
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/lutas?zeroDateTimeBehavior=convertToNull"/>
+      <!-- Usuario do banco -->
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <!-- Driver do MySQL -->
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <!-- Senha do usuario do banco -->
+      <property name="javax.persistence.jdbc.password" value="toor"/>
+      <!-- Estrategia para criação das tabelas => update => se tabela existe nao recria -->
+      <property name="hibernate.hbm2ddl.auto" value="update"/>      
+      <property name="hibernate.format_sql" value="true"/>
+      <property name="hibernate.show_sql" value="false"/>
+      <property name="hibernate.use_sql_comments" value="false"/>
+      <property name="hibernate.jdbc.wrap_result_sets" value="false"/>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+       <!-- Antigamente usava esse driver
+        <property name="hibernate.dialect" value = "org.hibernate.dialect.MySQLDialect"/>
+        <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />  
+        -->
+    </properties>
+  </persistence-unit>
+</persistence>
